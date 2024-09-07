@@ -1,0 +1,26 @@
+#Ignorar el entorno virtual
+.venv/
+env/
+venv/
+#Dependencias de entornos virtuales especificos
+*.pyc
+__pycache__/
+.Python
+#Archivos de config del entorno de desarrollo
+.vscode/
+.idea/
+*.swp
+#Ignorar los archivos JSONL
+*.jsonl
+#Archivos de config del sistema
+.DS_Store
+Thumbs.db
+#Archivos y directorios específicos de Python
+Python
+pip-log.txt
+pip-delete-this-directory.txt
+.env
+#Archivos de config de testing
+.pytest_cache/
+.coverage
+.tox/
