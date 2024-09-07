@@ -1,0 +1,8 @@
+openai
+ipykernel
+python-dotenv
+langchain
+langchain-community
+jupyter
+nltk
+spacy 
