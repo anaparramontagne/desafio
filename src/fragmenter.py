@@ -16,7 +16,7 @@ class ArticleProcessor:
         self.processed_articles = [] #Almacenará los fragmentos procesados
         self.nlp = spacy.load('en_core_web_md') #Modelo de embeddings
 
-    def process_article(self, article, keywords=[]):
+    def process_article(self, article):
         content = article['text']
         title = article.get('title', self.generate_title(content))
         summary = self.generate_summary(content)
