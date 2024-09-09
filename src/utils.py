@@ -1,24 +1,25 @@
 import json
 import spacy
 
-def load_jsonl(file_path):
-    #Carga el archivo base, cuya ruta se recibe como parámetro
+def load_jsonl(file_path, article_type): 
+    """Carga el archivo base, cuya ruta se recibe como parámetro y se extraen 
+    solo los que sean del tipo especificado en el parámetro article_type"""
     articles = []
     with open(file_path, 'r') as file:
         for line in file:
             item = json.loads(line.strip())
-            if item.get('type') == 'article': 
+            if item.get('type') == article_type: 
                 articles.append(item)
     return articles
 
 def write_output_file(fragments, output_path):
-    #Almacena los fragmentos en el archivo de salida
+    """Almacena los fragmentos en el archivo de salida"""
     with open(output_path, 'w', encoding='utf-8') as file:
         for fragment in fragments:
             file.write(json.dumps(fragment) + '\n')
 
 def find_related_references(articles, threshold=0.1): #Puede ajustarse el nivel de coincidencia deseado 
-    #Encuentra referencias relacionadas basado en coincidencias semanticas.
+    """Encuentra referencias relacionadas basado en coincidencias semanticas."""
     nlp = spacy.load('en_core_web_md') #Modelo de embeddings
     for i, article in enumerate(articles):
         related_references = set()
